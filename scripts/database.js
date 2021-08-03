@@ -33,7 +33,13 @@ const database = {
             styleId: 3,
             timestamp: 1614659931693
         }
-    ]
+    ],
+    orderBuilder: {
+    }
+}
+
+export const getCurrentOrder = () => {
+    return database.orderBuilder
 }
 
 export const getMetals = () => {
@@ -53,15 +59,15 @@ export const getOrders = () => {
 }
 
 export const setMetal = (id) => {
-    database.orderBuilder.metalId = id
+    database.orderBuilder.metalsId = id
 }
 
 export const setSize = (id) => {
-    database.orderBuilder.sizeId = id
+    database.orderBuilder.sizesId = id
 }
 
 export const setStyle = (id) => {
-    database.orderBuilder.styleId = id
+    database.orderBuilder.stylesId = id
 }
 
 export const addCustomOrder = () => {
@@ -83,4 +89,8 @@ export const addCustomOrder = () => {
 
     // Broadcast a notification that permanent state has changed
     document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+export const dumpDatabase = () => {
+    console.log("database: ", database)
 }
